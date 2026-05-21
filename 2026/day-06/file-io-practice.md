@@ -34,6 +34,7 @@ echo "Practicing redirection operators" >> notes.txt
 ```
 
 Output:
+
 <img width="569" height="124" alt="image" src="https://github.com/user-attachments/assets/5aa76fda-5a4b-4037-980f-1b720d8dc56e" />
 
 
@@ -49,6 +50,7 @@ Added a new line without overwriting existing content.
 echo "Linux Fundamentals" | tee -a notes.txt
 ```
 Output:
+
 <img width="537" height="105" alt="image" src="https://github.com/user-attachments/assets/118c5387-77e7-4931-9ccf-d5af7561a88f" />
 
 
@@ -79,6 +81,7 @@ cat notes.txt
 ```
 
 Output:
+
 <img width="473" height="122" alt="image" src="https://github.com/user-attachments/assets/f976902b-ad54-428c-a20a-48e9b8e54c90" />
 
 
@@ -93,6 +96,7 @@ Displayed the complete contents of the file.
 cat notes.txt | head -n 2
 ```
 Output:
+
 <img width="487" height="79" alt="image" src="https://github.com/user-attachments/assets/0cf86a7a-8564-44db-92a5-77de81d0989d" />
 
 
@@ -109,6 +113,7 @@ cat notes.txt | tail -n 2
 ```
 
 Output:
+
 <img width="515" height="53" alt="image" src="https://github.com/user-attachments/assets/875a7266-b8b4-4eb7-9d3a-6e260f406e8e" />
 
 
