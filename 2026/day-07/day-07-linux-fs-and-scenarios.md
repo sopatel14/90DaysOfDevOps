@@ -450,35 +450,30 @@ Example Output:
 
 Why: Tests whether the permission issue is resolved.
 
-What I Learned
+## What I Learned
 
-Linux files require execute (x) permission to run scripts. Use chmod +x to make scripts executable.
+Linux files require execute (`x`) permission to run scripts.  
+Use `chmod +x` to make scripts executable.
 
-Key Troubleshooting Flow
+---
 
-Check the current status of the service or process
+# Key Troubleshooting Flow
 
-Review logs for error messages
+1. Check the current status of the service or process  
+2. Review logs for error messages  
+3. Verify permissions or configuration  
+4. Restart or test again after changes  
+5. Confirm the issue is resolved  
 
-Verify permissions or configuration
+---
 
-Restart or test again after changes
-
-Confirm the issue is resolved
-
-Why This Matters for DevOps
+# Why This Matters for DevOps
 
 These troubleshooting skills are important for:
 
-Diagnosing production issues
-
-Managing Linux servers
-
-Monitoring applications and services
-
-Debugging deployment failures
-
-Handling real-world DevOps incidents
-
-Performing well in technical interviews
-
+- Diagnosing production issues
+- Managing Linux servers
+- Monitoring applications and services
+- Debugging deployment failures
+- Handling real-world DevOps incidents
+- Performing well in technical interviews
