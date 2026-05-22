@@ -8,8 +8,9 @@ Purpose:
 The root directory is the starting point of the Linux filesystem. All files and directories originate from here.
 
 Command:
-
+```bash
 ls -l /
+```
 
 Output:
 
@@ -27,7 +28,9 @@ Contains personal directories for regular users.
 
 Command:
 
+```bash
 ls -l /home
+```
 
 Output:
 
@@ -44,7 +47,9 @@ Home directory for the root administrator account.
 
 Command:
 
+```bash
 ls -l /root
+```
 
 Output :
 
@@ -61,8 +66,9 @@ Stores system-wide configuration files and service settings.
 
 Command:
 
+```bash
 ls -l /etc
-
+```
 Output:
 
 <img width="522" height="779" alt="image" src="https://github.com/user-attachments/assets/3d5f15a1-023e-4b74-82bc-0c22276eafbd" />
@@ -78,7 +84,9 @@ Contains system logs and application logs used for troubleshooting.
 
 Command:
 
+```bash
 ls -l /var/log
+```
 
 Output:
 
@@ -95,7 +103,9 @@ Stores temporary files created by applications and users.
 
 Command:
 
+```bash
 ls -l /tmp
+```
 
 Output:
 
@@ -113,8 +123,10 @@ Contains essential Linux command binaries.
 
 Command:
 
+```bash
 cd /bin
 ls
+```
 
 Output:
 
@@ -135,7 +147,9 @@ Stores third-party or optional software applications.
 
 Command:
 
+```bash
 ls -l /opt
+```
 
 Output:
 
@@ -151,7 +165,9 @@ Find Largest Log Files
 
 Command:
 
+```bash
 du -sh /var/log/* 2>/dev/null | sort -h | tail -5
+```
 
 Output:
 
@@ -161,8 +177,10 @@ View Hostname Configuration
 
 Command:
 
+```bash
 cat /etc/hostname
 whoami
+```
 
 Output:
 
@@ -176,7 +194,9 @@ Check Home Directory
 
 Command:
 
+```bash
 ls -la ~
+```
 
 Output:
 
