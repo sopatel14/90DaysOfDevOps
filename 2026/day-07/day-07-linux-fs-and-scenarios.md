@@ -206,3 +206,268 @@ Output:
 Observation:
 Reviewed hidden files, configuration files, and user directories.
 
+
+
+Part 2: Scenario-Based Practice
+
+Scenario 1: Service Not Starting
+
+Question
+
+A web application service called myapp failed to start after a server reboot.
+What commands would you run to diagnose the issue?
+
+Step 1: Check service status
+
+```bash
+systemctl status myapp
+```
+
+Why: Checks whether the service is active, failed, or stopped and shows recent errors.
+
+Step 2: Check service logs
+
+```bash
+journalctl -u myapp -n 50
+```
+
+Why: Displays the last 50 log lines for troubleshooting startup issues.
+
+Step 3: Verify if the service is enabled on boot
+
+```bash
+systemctl is-enabled myapp
+```
+
+Why: Confirms whether the service is configured to start automatically after reboot.
+
+Step 4: Check failed services
+
+```bash
+systemctl --failed
+```
+
+Why: Shows all services that failed during boot.
+
+Step 5: Restart the service manually
+
+```bash
+systemctl restart myapp
+```
+
+Why: Attempts to start the service again and generate fresh logs.
+
+What I Learned
+
+Always start by checking the service status, then inspect logs, verify boot settings, and test the service again.
+
+Scenario 2: High CPU Usage
+
+Question
+
+Your manager reports that the application server is slow.
+You SSH into the server. What commands would you run to identify which process is using high CPU?
+
+Step 1: Monitor live CPU usage
+
+```bash
+top
+```
+Output:
+
+<img width="566" height="424" alt="image" src="https://github.com/user-attachments/assets/3b1048d8-6c59-4286-b812-39fd376ececb" />
+
+
+Why: Shows real-time CPU and memory usage of running processes.
+
+Step 2: List processes sorted by CPU usage
+
+```bash
+ps aux --sort=-%cpu | head -10
+```
+Output:
+
+<img width="566" height="371" alt="image" src="https://github.com/user-attachments/assets/fcad5684-c74a-4417-9e6c-b7fd82706476" />
+
+
+Why: Displays the top CPU-consuming processes along with their PID.
+
+Step 3: Use enhanced interactive monitoring
+
+```bash
+htop
+```
+
+Output:
+
+<img width="565" height="419" alt="image" src="https://github.com/user-attachments/assets/b82c63c6-fc97-4461-879a-7d0aeefd61c4" />
+
+
+Why: Provides an easier and more user-friendly process monitoring interface.
+
+Step 4: Inspect a specific process
+
+```bash
+ps -p <PID> -f
+```
+
+Output:
+
+<img width="435" height="107" alt="image" src="https://github.com/user-attachments/assets/72b5b3c1-2296-40ba-98b9-b88359e2e101" />
+
+
+Why: Displays detailed information about a specific high-CPU process.
+
+What I Learned
+
+Use monitoring tools like top or htop first, identify the PID of the high CPU process, and then inspect it further.
+
+Scenario 3: Finding Service Logs
+Question
+
+A developer asks: “Where are the logs for the docker service?”
+The service is managed by systemd.
+
+Step 1: Check service status
+
+```bash
+systemctl status docker
+```
+
+Output:
+
+<img width="665" height="423" alt="image" src="https://github.com/user-attachments/assets/ecd25110-6bd4-47f5-be51-5e1438a74aad" />
+
+
+Why: Shows whether Docker is running and displays recent logs.
+
+Step 2: View recent logs
+
+```bash
+journalctl -u docker -n 50
+```
+Output:
+
+<img width="661" height="360" alt="image" src="https://github.com/user-attachments/assets/9443d967-c552-415f-a5f5-b45be0c7635e" />
+
+
+
+Why: Displays the last 50 lines of Docker service logs.
+
+Step 3: Follow logs in real-time
+
+```bash
+journalctl -u docker -f
+```
+Output:
+
+<img width="663" height="392" alt="image" src="https://github.com/user-attachments/assets/5795f2ad-06ce-4ae9-a801-a133a5a2a954" />
+
+
+Why: Streams live logs continuously like tail -f.
+
+Step 4: View logs since last boot
+
+```bash
+journalctl -u docker -b
+```
+
+Output:
+
+<img width="663" height="360" alt="image" src="https://github.com/user-attachments/assets/a6d329d9-e565-49ea-921e-b22682134f9a" />
+
+
+Why: Helps troubleshoot issues that occurred after reboot.
+
+What I Learned
+
+Systemd-managed services store logs in journald, and journalctl is the main command used for viewing and monitoring logs.
+
+Scenario 4: File Permissions Issue
+Question
+
+A script at /home/ubuntu/backup.sh is not executing.
+
+When running:
+
+```bash
+./backup.sh
+```
+
+You get:
+
+<img width="348" height="75" alt="image" src="https://github.com/user-attachments/assets/39c63b5b-9ae5-441c-8798-e62f3c63770b" />
+
+
+Permission denied
+
+What commands would you use to fix this?
+
+Step 1: Check current permissions
+
+```bash
+ls -l /home/ubuntu/backup.sh
+```
+
+Example output:
+
+<img width="490" height="68" alt="image" src="https://github.com/user-attachments/assets/85c546bd-8707-48ad-b2d1-9d811ee9bc8c" />
+
+
+Why: Verifies whether the script has execute (x) permission.
+
+
+Step 2: Add execute permission
+
+```bash
+chmod +x /home/ubuntu/backup.sh
+```
+
+Why: Makes the script executable.
+
+Step 3: Verify updated permissions
+
+```bash
+ls -l /home/ubuntu/backup.sh
+```
+Example output:
+
+<img width="526" height="58" alt="image" src="https://github.com/user-attachments/assets/c6533581-fc03-4c66-b4a3-5b6c9e570414" />
+
+
+Why: Confirms that execute permission was added successfully.
+
+
+Step 4: Run the script again
+
+```bash
+./backup.sh
+```
+Example Output:
+
+<img width="301" height="58" alt="image" src="https://github.com/user-attachments/assets/cdcae6e8-f89f-4e32-b725-e1350c6ea6c0" />
+
+
+Why: Tests whether the permission issue is resolved.
+
+What I Learned
+
+Linux files require execute (x) permission to run scripts. Use chmod +x to make scripts executable.
+
+Key Troubleshooting Flow
+Check the current status of the service or process
+Review logs for error messages
+Verify permissions or configuration
+Restart or test again after changes
+Confirm the issue is resolved
+Why This Matters for DevOps
+
+These troubleshooting skills are important for:
+
+Diagnosing production issues
+Managing Linux servers
+Monitoring applications and services
+Debugging deployment failures
+Handling real-world DevOps incidents
+Performing well in technical interviews
+
