@@ -457,18 +457,28 @@ Linux files require execute (x) permission to run scripts. Use chmod +x to make 
 Key Troubleshooting Flow
 
 Check the current status of the service or process
+
 Review logs for error messages
+
 Verify permissions or configuration
+
 Restart or test again after changes
+
 Confirm the issue is resolved
+
 Why This Matters for DevOps
 
 These troubleshooting skills are important for:
 
 Diagnosing production issues
+
 Managing Linux servers
+
 Monitoring applications and services
+
 Debugging deployment failures
+
 Handling real-world DevOps incidents
+
 Performing well in technical interviews
 
