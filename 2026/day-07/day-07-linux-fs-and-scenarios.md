@@ -455,6 +455,7 @@ What I Learned
 Linux files require execute (x) permission to run scripts. Use chmod +x to make scripts executable.
 
 Key Troubleshooting Flow
+
 Check the current status of the service or process
 Review logs for error messages
 Verify permissions or configuration
