@@ -221,7 +221,7 @@ Automating package installation ensures consistency and saves time during server
 
 # Task 5: Error Handling
 
-## Script: safe_script.sh
+## 1.Script: safe_script.sh
 
 ```bash
 ubuntu@ip-172-31-33-19:~/scripts$ cat safe_script.sh
@@ -253,13 +253,47 @@ Perform filesystem operations while handling errors safely.
 
 <img width="1124" height="328" alt="image" src="https://github.com/user-attachments/assets/03a930f8-74e9-4230-a35d-b18ab4f385d9" />
 
+## 2. Modify your install_packages.sh to check if the script is being run as root — exit with a message if not.
+
+```bash
+#!/bin/bash
+
+if [ "$EUID" -ne 0 ]
+then
+    echo "Please run this script as root or using sudo."
+    exit 1
+fi
+
+
+packages="nginx curl wget"
+
+for package in $packages
+do
+    if dpkg -s $package >/dev/null 2>&1
+    then
+        echo "$package is already installed. Skipping..."
+    else
+        echo "$package is not installed. Installing..."
+        sudo apt install -y $package
+    fi
+done
+```
+
+### Output
+
+<img width="988" height="252" alt="image" src="https://github.com/user-attachments/assets/274e5f2f-8a3b-4427-9db8-34141fa53b31" />
+
+
 
 ### Observation
 
 * `set -e` helps stop scripts when unexpected errors occur.
 * `||` provides fallback actions when commands fail.
 * Error handling improves script reliability and troubleshooting.
-
+* Package installation requires administrative privileges.
+* The script checks the current user's Effective User ID (EUID).
+* If the user is not root, the script exits safely before making any system changes.
+* This prevents permission-related failures during package installation.
 ---
 
 # Key Learnings
