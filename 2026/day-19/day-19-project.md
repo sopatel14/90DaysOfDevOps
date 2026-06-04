@@ -6,7 +6,6 @@
 |------|---------|
 | `log_rotate.sh` | Compress old logs, purge ancient archives |
 | `backup.sh` | Generic timestamped tar.gz backup |
-| `backup_scripts.sh` | Capstone-style backup for `/home/ubuntu/scripts` |
 | `maintenance.sh` | Orchestrator — calls rotation + backup, logs everything |
 
 ---
