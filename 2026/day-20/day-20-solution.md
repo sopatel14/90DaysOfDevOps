@@ -188,9 +188,9 @@ Moves analyzed logs into archive/.
 
 ## Output
 
-<img width="1160" height="846" alt="image" src="https://github.com/user-attachments/assets/657e19a2-9a3b-4796-8108-58231205f86f" />
+<img width="683" height="376" alt="image" src="https://github.com/user-attachments/assets/50c6c45e-8368-4e66-a6cd-426c66de13be" />
 
-<img width="501" height="83" alt="image" src="https://github.com/user-attachments/assets/512965e8-0495-41a7-95e3-192030af77fb" />
+<img width="514" height="98" alt="image" src="https://github.com/user-attachments/assets/23dc3dbc-1a37-49f0-bcbf-21dfab9b6f09" />
 
 
 
