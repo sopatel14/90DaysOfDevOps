@@ -1,0 +1,69 @@
+Jun  1 06:17:01 combo sshd(pam_unix)[19939]: authentication failure; logname= uid=0 euid=0 tty=NODEVssh ruser= rhost=218.188.2.4
+Jun  1 06:17:03 combo sshd[19937]: Failed password for root from 218.188.2.4 port 5866 ssh2
+Jun  1 06:17:03 combo sshd[19937]: error: connect_to 218.188.2.4 port 5866: failed.
+Jun  1 06:20:11 combo kernel: ERROR Unable to handle kernel NULL pointer dereference at virtual address 00000000
+Jun  1 06:20:11 combo kernel: CRITICAL Disk space below threshold on /dev/sda1
+Jun  1 06:21:04 combo sshd[19940]: Failed password for root from 218.188.2.4 port 5867 ssh2
+Jun  1 06:21:04 combo sshd[19940]: error: connect_to 218.188.2.4 port 5867: failed.
+Jun  1 06:21:22 combo su(pam_unix)[19941]: authentication failure; logname= uid=0 euid=0 tty= ruser= rhost=  user=news
+Jun  1 06:25:01 combo sshd[19942]: Failed password for root from 218.188.2.4 port 5870 ssh2
+Jun  1 06:25:01 combo sshd[19942]: error: connect_to 218.188.2.4 port 5870: failed.
+Jun  1 07:01:12 combo kernel: ERROR File not found: /var/log/messages
+Jun  1 07:02:44 combo kernel: ERROR Connection timed out connecting to db-master
+Jun  1 07:03:58 combo sshd[20001]: Failed password for invalid user admin from 219.92.4.24 port 6000 ssh2
+Jun  1 07:04:00 combo kernel: ERROR Permission denied accessing /etc/shadow
+Jun  1 07:05:32 combo kernel: ERROR Connection timed out connecting to db-master
+Jun  1 07:06:11 combo kernel: ERROR File not found: /var/log/messages
+Jun  1 07:08:44 combo kernel: ERROR Disk I/O error on /dev/sdb
+Jun  1 07:09:01 combo sshd[20015]: Failed password for root from 219.92.4.24 port 6001 ssh2
+Jun  1 07:10:33 combo kernel: ERROR Connection timed out connecting to db-master
+Jun  1 07:11:22 combo kernel: CRITICAL Database connection lost to db-master:5432
+Jun  1 07:12:01 combo kernel: ERROR Out of memory: Kill process 1234
+Jun  1 07:13:44 combo kernel: ERROR Connection timed out connecting to db-master
+Jun  1 07:14:23 combo sshd[20031]: Failed password for invalid user test from 220.1.2.3 port 6100 ssh2
+Jun  1 07:15:01 combo kernel: ERROR File not found: /var/log/messages
+Jun  1 07:16:55 combo kernel: ERROR Permission denied accessing /etc/shadow
+Jun  1 07:17:22 combo kernel: ERROR Connection timed out connecting to db-master
+Jun  1 07:18:01 combo kernel: ERROR Disk I/O error on /dev/sdb
+Jun  1 07:19:44 combo sshd[20050]: Failed password for root from 220.1.2.3 port 6101 ssh2
+Jun  1 07:20:11 combo kernel: ERROR Connection timed out connecting to db-master
+Jun  1 07:21:00 combo kernel: ERROR Out of memory: Kill process 1235
+Jun  1 07:22:33 combo kernel: ERROR File not found: /var/log/messages
+Jun  1 07:23:01 combo sshd[20060]: Failed password for invalid user oracle from 221.5.6.7 port 6200 ssh2
+Jun  1 07:24:44 combo kernel: CRITICAL Memory usage exceeded 95% threshold
+Jun  1 07:25:22 combo kernel: ERROR Permission denied accessing /etc/shadow
+Jun  1 07:26:01 combo kernel: ERROR Connection timed out connecting to db-master
+Jun  1 07:27:55 combo kernel: ERROR Disk I/O error on /dev/sdb
+Jun  1 07:28:22 combo sshd[20075]: Failed password for root from 221.5.6.7 port 6201 ssh2
+Jun  1 07:29:11 combo kernel: ERROR Connection timed out connecting to db-master
+Jun  1 07:30:00 combo kernel: ERROR File not found: /var/log/messages
+Jun  1 07:31:44 combo kernel: ERROR Out of memory: Kill process 1236
+Jun  1 07:32:01 combo sshd[20090]: Failed password for invalid user backup from 222.10.11.12 port 6300 ssh2
+Jun  1 07:33:22 combo kernel: ERROR Permission denied accessing /etc/shadow
+Jun  1 07:34:11 combo kernel: ERROR Connection timed out connecting to db-master
+Jun  1 07:35:44 combo kernel: ERROR File not found: /var/log/messages
+Jun  1 07:36:01 combo sshd[20105]: Failed password for root from 222.10.11.12 port 6301 ssh2
+Jun  1 07:37:33 combo kernel: ERROR Disk I/O error on /dev/sdb
+Jun  1 07:38:22 combo kernel: CRITICAL Swap space exhausted on node-03
+Jun  1 07:39:11 combo kernel: ERROR Connection timed out connecting to db-master
+Jun  1 07:40:00 combo kernel: ERROR Out of memory: Kill process 1237
+Jun  1 07:41:44 combo sshd[20120]: Failed password for invalid user mysql from 223.15.16.17 port 6400 ssh2
+Jun  1 07:42:22 combo kernel: ERROR File not found: /var/log/messages
+Jun  1 07:43:11 combo kernel: ERROR Permission denied accessing /etc/shadow
+Jun  1 07:44:00 combo kernel: ERROR Connection timed out connecting to db-master
+Jun  1 07:45:33 combo sshd[20135]: Failed password for root from 223.15.16.17 port 6401 ssh2
+Jun  1 07:46:22 combo kernel: ERROR Disk I/O error on /dev/sdb
+Jun  1 07:47:11 combo kernel: ERROR File not found: /var/log/messages
+Jun  1 07:48:00 combo kernel: CRITICAL NFS mount point /mnt/data is unresponsive
+Jun  1 07:49:44 combo kernel: ERROR Connection timed out connecting to db-master
+Jun  1 07:50:22 combo kernel: ERROR Out of memory: Kill process 1238
+Jun  1 07:51:11 combo sshd[20150]: Failed password for invalid user ftp from 224.20.21.22 port 6500 ssh2
+Jun  1 07:52:00 combo kernel: ERROR Permission denied accessing /etc/shadow
+Jun  1 07:53:44 combo kernel: ERROR Connection timed out connecting to db-master
+Jun  1 07:54:22 combo kernel: ERROR File not found: /var/log/messages
+Jun  1 07:55:11 combo sshd[20165]: Failed password for root from 224.20.21.22 port 6501 ssh2
+Jun  1 07:56:00 combo kernel: ERROR Disk I/O error on /dev/sdb
+Jun  1 07:57:44 combo kernel: ERROR Connection timed out connecting to db-master
+Jun  1 07:58:22 combo kernel: ERROR Out of memory: Kill process 1239
+Jun  1 07:59:11 combo kernel: INFO System checkpoint passed
+Jun  1 08:00:00 combo kernel: INFO Daily health check completed successfully
