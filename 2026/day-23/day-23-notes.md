@@ -57,6 +57,11 @@ Git updates the working directory to match the selected branch. Files may appear
 
 <img width="1190" height="264" alt="image" src="https://github.com/user-attachments/assets/36346569-ef33-4c57-8534-4a0b0b4b1d46" />
 
+**Screenshot 4:** Delete an unused branch
+
+<img width="1164" height="162" alt="image" src="https://github.com/user-attachments/assets/f56034dd-e64c-4e73-93cc-0ca24460ec70" />
+
+
 
 ---
 
@@ -72,7 +77,7 @@ Git updates the working directory to match the selected branch. Files may appear
 
 ### Evidence
 
-**Screenshot 4:** GitHub repository showing branches
+**Screenshot 5:** GitHub repository showing branches
 
 <img width="417" height="463" alt="image" src="https://github.com/user-attachments/assets/ff9a3477-dd16-44f8-b1a0-1fd6fc745cbe" />
 
@@ -97,7 +102,7 @@ Git updates the working directory to match the selected branch. Files may appear
 ### Evidence
 
 
-**Screenshot 5:** Successful git pull
+**Screenshot 6:** Successful git pull
 
 <img width="1256" height="690" alt="image" src="https://github.com/user-attachments/assets/f0b72ddf-7e58-444d-9728-9555f8a33feb" />
 
