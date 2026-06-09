@@ -290,13 +290,10 @@ git reflog
 
 It can help recover commits that appear lost after a reset or rebase.
 
-### Screenshot
+### git reflog
 
-> Insert screenshot of:
->
-> ```bash
-> git reflog
-> ```
+<img width="682" height="851" alt="image" src="https://github.com/user-attachments/assets/2e83aadf-c980-4cce-813d-1b8bd4176813" />
+
 
 ---
 
