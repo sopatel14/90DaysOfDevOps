@@ -340,7 +340,6 @@ Removed local images and tested deployment directly from Docker Hub.
 
 
 
-
 ### Docker Compose Services
 
 ![Docker Compose](screenshots/docker-compose-ps.png)
