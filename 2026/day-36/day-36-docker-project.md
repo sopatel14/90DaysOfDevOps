@@ -1,5 +1,7 @@
 # Day 36 – Docker Project: Dockerize a Full Application
 
+https://github.com/sopatel14/nodejs-getting-started/tree/main
+
 ## Objective
 
 Today's goal was to Dockerize a complete application and deploy it using Docker Compose. The project includes a Node.js application, PostgreSQL database, Redis cache, Docker networking, persistent volumes, health checks, and Docker Hub image distribution.
