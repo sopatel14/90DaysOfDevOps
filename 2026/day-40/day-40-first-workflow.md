@@ -108,7 +108,8 @@ Failure Test (Optional Experiment)
 
 I added a test failure step:
 
-```bash - name: Intentional Failure Step
+```
+- name: Intentional Failure Step
   run: exit 1
 ```
 
