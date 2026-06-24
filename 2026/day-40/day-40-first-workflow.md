@@ -75,28 +75,28 @@ jobs:
 
 ### GitHub Actions Concepts Explained
 
-# on:
+### on:
 Defines the event that triggers the workflow.
 Here, it runs every time I push code.
 
-# jobs:
+### jobs:
 A workflow is made of one or more jobs.
 Each job runs independently in a virtual environment.
 
-# runs-on:
+### runs-on:
 Specifies the operating system for the runner.
 Example: ubuntu-latest
 
-# steps:
+### steps:
 A sequence of tasks executed inside the job.
 
-# uses:
+### uses:
 Runs a predefined GitHub Action (like checking out code).
 
-# run:
+### run:
 Executes shell commands directly on the runner machine.
 
-# name:
+### name:
 Gives a readable label to each step for better logs.
 
 
