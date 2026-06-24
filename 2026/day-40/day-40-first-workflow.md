@@ -69,39 +69,36 @@ jobs:
 
 
 
-GitHub Actions Concepts Explained
-on:
 
+GitHub Actions Concepts Explained
+
+on:
 Defines the event that triggers the workflow.
 Here, it runs every time I push code.
 
 jobs:
-
 A workflow is made of one or more jobs.
 Each job runs independently in a virtual environment.
 
 runs-on:
-
 Specifies the operating system for the runner.
 Example: ubuntu-latest
 
 steps:
-
 A sequence of tasks executed inside the job.
 
 uses:
-
 Runs a predefined GitHub Action (like checking out code).
 
 run:
-
 Executes shell commands directly on the runner machine.
 
 name:
-
 Gives a readable label to each step for better logs.
 
-What I Learned
+
+### What I Learned:
+
 How CI/CD pipelines are triggered automatically
 How GitHub provides cloud runners for execution
 How each step runs in sequence
