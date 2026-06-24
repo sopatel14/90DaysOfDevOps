@@ -70,10 +70,10 @@ jobs:
 <img width="2490" height="1630" alt="image" src="https://github.com/user-attachments/assets/c628ef38-aae0-4e5c-ae3d-caa902fc4553" />
 
 
+---
 
 
-
-GitHub Actions Concepts Explained
+### GitHub Actions Concepts Explained
 
 on:
 Defines the event that triggers the workflow.
