@@ -58,22 +58,6 @@ jobs:
 
 <img width="3338" height="1310" alt="image" src="https://github.com/user-attachments/assets/d23462e6-d290-497c-a6e6-19271116d423" />
 
-
-### Ubuntu Runner
-
-<img width="552" height="632" alt="image" src="https://github.com/user-attachments/assets/75ca2268-9ca2-478a-a6f4-620e7c7b815d" />
-
-
-### Windows Runner
-
-<img width="932" height="704" alt="image" src="https://github.com/user-attachments/assets/2b8b4e14-70bc-4a0f-8806-492f9c548d59" />
-
-
-### macOS Runner
-
-<img width="712" height="660" alt="image" src="https://github.com/user-attachments/assets/56a3a7ab-86c8-4c5c-a39b-4c1b66c4c337" />
-
-
 ---
 
 ## What is a GitHub-Hosted Runner?
@@ -185,7 +169,7 @@ Then I downloaded, configured, and started the runner on my own machine.
 
 **File:** `.github/workflows/self-hosted.yml`
 
-> **Paste your workflow here**
+
 
 ```yaml
 name: self-hosted runner
