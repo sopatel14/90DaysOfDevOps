@@ -215,14 +215,13 @@ jobs:
 ## 🧠 Architectural Insights (Theory Section)
 
 ### What does `needs:` do?
-It creates dependencies between jobs, forcing them to run sequentially instead of simultaneously. It stops a downstream job from executing if the required parent job fails.
+`needs:` makes a job wait for another job to finish successfully before it starts.
 
 ### What does `outputs:` do?
-It lets you share data and variables between different jobs in your workflow. This is required because each job runs on its own isolated virtual machine.
+`outputs:` allow one job to share data with another job running on a different runner.
 
-### Why would you pass outputs between jobs? (Task 3 Note)
-Because jobs run on isolated machines, any file or variable created in Job 1 vanishes when it closes. Passing outputs is the only way to share dynamic strings (like versions or generated dates) with Job 2.
+### Why pass outputs between jobs?
+Jobs are isolated, so outputs are used to transfer runtime values like version numbers or IDs.
 
-### What does `continue-on-error: true` do? (Task 4 Note)
-It prevents a specific step failure from crashing your entire workflow run. The individual step will show a warning flag, but the rest of the job keeps running smoothly.
-
+### What does `continue-on-error: true` do?
+It lets a step fail without stopping the rest of the job, allowing the workflow to continue.
