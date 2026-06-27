@@ -215,13 +215,14 @@ jobs:
 ## 🧠 Architectural Insights (Theory Section)
 
 ### What does `needs:` do?
-By default, GitHub Actions runs all independent jobs completely in parallel on fresh servers to finish pipelines as fast as possible. The `needs:` keyword serves as a sequential gatekeeper. It forces a specific job to pause execution and wait until the dependent target job(s) complete successfully. This is vital for software delivery pipelines because you shouldn't run a **deploy** script if the **test** suite has broken down.
+It creates dependencies between jobs, forcing them to run sequentially instead of simultaneously. It stops a downstream job from executing if the required parent job fails.
 
 ### What does `outputs:` do?
-Every job in GitHub Actions executes on an entirely isolated, separate virtual machine runner. When a job ends, its virtual machine and local hard disk memory are destroyed. The `outputs:` block allows a job to register a specific variable string inside the global engine's memory space before shutting down. This lets downstream jobs fetch and look inside that shared memory token, serving as a messaging bridge between completely isolated hardware servers.
+It lets you share data and variables between different jobs in your workflow. This is required because each job runs on its own isolated virtual machine.
 
-### Why would you pass outputs between jobs? (Task 3 Reflection Note)
-You must pass outputs between jobs because jobs do not share memory or file system states. If Job A calculates a piece of runtime metadata (like an automated version tag, a cloud resource IP address, or an evaluation metric), that data will disappear forever when Job A closes down. Inter-job output mapping is the only way to share small, dynamic data parameters with following runners without wasting time writing and downloading storage files.
+### Why would you pass outputs between jobs? (Task 3 Note)
+Because jobs run on isolated machines, any file or variable created in Job 1 vanishes when it closes. Passing outputs is the only way to share dynamic strings (like versions or generated dates) with Job 2.
 
-### What does `continue-on-error: true` do? (Task 4 Reflection Note)
-Normally, if a single step within a job throws an error (exits with a non-zero status code), the runner instantly drops everything, cancels all remaining steps, and marks the workflow execution status as red/failed. Turning on `continue-on-error: true` converts a step failure into a non-breaking warning flag. The individual step can fail, but the execution engine ignores the crash, keeps the running job state green, and allows following steps to proceed as if nothing went wrong. This is exceptionally useful for tasks like running experimental tools or tracking non-blocking metrics.
+### What does `continue-on-error: true` do? (Task 4 Note)
+It prevents a specific step failure from crashing your entire workflow run. The individual step will show a warning flag, but the rest of the job keeps running smoothly.
+
