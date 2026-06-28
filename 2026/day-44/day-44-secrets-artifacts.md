@@ -46,8 +46,6 @@ MY_SECRET_MESSAGE
 
 ## Output
 
-📸 **Screenshot Placeholder**
-
 
 <img width="3356" height="1584" alt="image" src="https://github.com/user-attachments/assets/e5203443-6743-4a9d-9176-8b626564ac0c" />
 
@@ -155,7 +153,8 @@ Artifacts allow workflow-generated files to be downloaded even after the workflo
 
 ## Artifact Download
 
-📸 **Screenshot Placeholder**
+## Output
+
 
 
 <img width="3338" height="1686" alt="image" src="https://github.com/user-attachments/assets/bb611ce0-3cb9-447a-97ca-aedd0aa6121f" />
@@ -231,8 +230,6 @@ jobs:
 ---
 
 ## Output
-
-📸 **Screenshot Placeholder**
 
 
 <img width="3360" height="1188" alt="image" src="https://github.com/user-attachments/assets/eabc6c12-0740-4295-87a6-5549f6e96dfb" />
@@ -371,13 +368,11 @@ The workflow:
 
 ## Passing Workflow
 
-📸 **Screenshot Placeholder**
+## Output
+
 
 
 <img width="3360" height="1680" alt="image" src="https://github.com/user-attachments/assets/491c5498-536d-4eb0-bfa7-f22bc14eb7d5" />
-
-
----
 
 
 ---
