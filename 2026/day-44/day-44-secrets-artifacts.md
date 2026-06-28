@@ -48,10 +48,10 @@ MY_SECRET_MESSAGE
 
 📸 **Screenshot Placeholder**
 
-```
+
 <img width="3356" height="1584" alt="image" src="https://github.com/user-attachments/assets/e5203443-6743-4a9d-9176-8b626564ac0c" />
 
-```
+
 
 ---
 
@@ -157,10 +157,10 @@ Artifacts allow workflow-generated files to be downloaded even after the workflo
 
 📸 **Screenshot Placeholder**
 
-```
+
 <img width="3338" height="1686" alt="image" src="https://github.com/user-attachments/assets/bb611ce0-3cb9-447a-97ca-aedd0aa6121f" />
 
-```
+
 
 ---
 
@@ -234,12 +234,12 @@ jobs:
 
 📸 **Screenshot Placeholder**
 
-```
+
 <img width="3360" height="1188" alt="image" src="https://github.com/user-attachments/assets/eabc6c12-0740-4295-87a6-5549f6e96dfb" />
 
 <img width="3360" height="1398" alt="image" src="https://github.com/user-attachments/assets/36d56c54-300e-4117-b0ca-d0d7fb608743" />
 
-```
+
 
 ---
 
@@ -297,7 +297,7 @@ jobs:
 ## Script Used - system-info.sh
 
 
-```python
+```yaml
 #!/bin/bash
 
 set -euo pipefail
@@ -352,7 +352,8 @@ if [ ! -d "my-cache-folder" ] || [ -z "$(ls -A my-cache-folder)" ]; then
   dd if=/dev/urandom of=my-cache-folder/fake-deps.bin bs=1M count=10
 else
   echo "Cache Hit! Skipping download."
-fi```
+fi
+```
 
 ---
 
@@ -372,9 +373,9 @@ The workflow:
 
 📸 **Screenshot Placeholder**
 
-```
+
 <img width="3360" height="1680" alt="image" src="https://github.com/user-attachments/assets/491c5498-536d-4eb0-bfa7-f22bc14eb7d5" />
-```
+
 
 ---
 
@@ -440,13 +441,13 @@ Subsequent runs restored dependencies from cache, reducing workflow execution ti
 
 📸 **Screenshot Placeholder**
 
-```
+
 <img width="3334" height="1646" alt="image" src="https://github.com/user-attachments/assets/8c44ba34-689b-45cc-87b4-2acdc12937ed" />
 
 <img width="3354" height="1722" alt="image" src="https://github.com/user-attachments/assets/cd9438f8-5b09-4934-9740-b22883d731b3" />
 
 
-```
+
 
 ---
 
