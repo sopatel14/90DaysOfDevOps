@@ -105,7 +105,7 @@ https://hub.docker.com/repository/docker/sopatel264/node-js-new-app```
 
 ## 4. Docker Desktop / Running Container
 
-<img width="1804" height="982" alt="image" src="https://github.com/user-attachments/assets/4d6165a8-1777-42cd-a7e7-9a77ef690c7d" />
+<img width="1670" height="666" alt="image" src="https://github.com/user-attachments/assets/e8d15287-456c-45f0-8a76-42af46c7c76f" />
 
 
 ---
