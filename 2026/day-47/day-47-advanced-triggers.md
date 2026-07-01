@@ -512,9 +512,6 @@ which is used for reusable workflows.
 
 ## Output
 
-
-<img width="831" height="55" alt="image" src="https://github.com/user-attachments/assets/acede89e-3f0a-439d-8667-70f1ce54b0e9" />
-
 <img width="3360" height="1696" alt="image" src="https://github.com/user-attachments/assets/d0f54b76-2be8-4ddf-95a6-ee0fd22532a7" />
 
 
