@@ -1,47 +1,108 @@
-Day 47 - Advanced Triggers: PR Events, Cron Schedules & Event-Driven Pipelines
-Overview
-This document covers advanced GitHub Actions triggers including PR lifecycle events, scheduled workflows, path filters, workflow chaining, and external event triggers.
+# Day 47 – Advanced Triggers: PR Events, Cron Schedules & Event-Driven Pipelines
 
-Task 1: Pull Request Event Types
-Workflow: pr-lifecycle.yml
-yaml
-name: PR Lifecycle Events
+## 📌 Objective
+
+Today I explored advanced GitHub Actions triggers used in real-world CI/CD pipelines. I learned how to trigger workflows based on Pull Request lifecycle events, scheduled cron jobs, path filters, workflow chaining, and external events.
+
+---
+
+# Task 1 – Pull Request Lifecycle Events
+
+## 🎯 Goal
+
+Create a workflow that reacts to different Pull Request activities.
+
+### Triggered Events
+
+- opened
+- synchronize
+- reopened
+- closed
+
+### Workflow File - .github/workflows/pr-lifecycle.yml
+
+
+```yaml
+# Create a workflow that runs during different stages of a Pull Request lifecycle.
+
+
+name: PR lifecycle
 
 on:
   pull_request:
-    types:
-      - opened
-      - synchronize
-      - reopened
-      - closed
+    types: [opened, synchronize, reopened, closed]
 
 jobs:
-  pr-lifecycle:
+  pr-info:
     runs-on: ubuntu-latest
-    
+
     steps:
-      - name: Print PR event information
+      - name: Event type fired
+        run: echo "The event action is ${{ github.event.action }}"
+
+      - name: Print the title of the PR
+        run: echo "The Pull Request title is ${{ github.event.pull_request.title }}"
+
+      - name: Print the PR author
+        run: echo "The author of this PR is ${{ github.event.pull_request.user.login }}"
+
+      - name: Print Source and Target Branches
         run: |
-          echo "========================================"
-          echo "Pull Request Event Information"
-          echo "========================================"
-          echo "Event type: ${{ github.event.action }}"
-          echo "PR Title: ${{ github.event.pull_request.title }}"
-          echo "PR Author: ${{ github.event.pull_request.user.login }}"
-          echo "Source branch: ${{ github.event.pull_request.head.ref }}"
-          echo "Target branch: ${{ github.event.pull_request.base.ref }}"
-          echo "========================================"
-      
-      - name: Check if PR was merged
-        if: github.event.pull_request.merged == true
+          echo "Source Branch: ${{ github.head_ref }}"
+          echo "Target Branch: ${{ github.base_ref }}"
+
+      - name: Only Runs when PR is merged
+        if: github.event.action == 'closed' && github.event.pull_request.merged == true
         run: |
-          echo "========================================"
-          echo "PR was merged successfully!"
-          echo "PR #${{ github.event.pull_request.number }} merged"
-          echo "========================================"
-Task 2: PR Validation Workflow
-Workflow: pr-checks.yml
-yaml
+          echo "The PR was successfully merged"
+
+      - name: Only Runs when PR is closed without merging
+        if: github.event.action == 'closed' && github.event.pull_request.merged == false
+        run: |
+          echo "The PR was closed without merging."
+
+```
+
+### What I Learned
+
+- `github.event.action` tells which PR activity triggered the workflow.
+- PR metadata such as:
+  - Title
+  - Author
+  - Source branch
+  - Target branch
+- Detect whether a PR was merged using:
+
+```yaml
+github.event.pull_request.merged == true
+```
+
+---
+
+## Output
+<img width="3350" height="1732" alt="image" src="https://github.com/user-attachments/assets/014d884c-6eb8-4b13-9b60-271796eec696" />
+
+<img width="3352" height="1698" alt="image" src="https://github.com/user-attachments/assets/5943377a-135e-428a-8d58-f3236ed08ae0" />
+
+<img width="3338" height="1678" alt="image" src="https://github.com/user-attachments/assets/ff996d88-e2c1-45b4-b879-31c73aba9575" />
+
+<img width="3358" height="1690" alt="image" src="https://github.com/user-attachments/assets/8f3637c8-4493-4bdb-828d-9c3686e037c4" />
+
+
+
+---
+
+# Task 2 – Pull Request Validation
+
+## 🎯 Goal
+
+Automatically validate Pull Requests before merging.
+
+### Workflow File - .github/workflows/pr-checks.yml
+
+
+```yaml
+
 name: PR Validation Workflow
 
 on:
@@ -101,9 +162,46 @@ jobs:
             echo "PR description is not empty"
             echo "Description preview: ${PR_BODY:0:100}..."
           fi
-Task 3: Scheduled Workflows
-Workflow: scheduled-tasks.yml
-yaml
+```
+
+### Implemented Checks
+
+### ✅ File Size Validation
+
+- Fail workflow if any file exceeds **1 MB**
+
+### ✅ Branch Naming Validation
+
+Allowed prefixes:
+
+- feature/
+- fix/
+- docs/
+
+### ✅ Pull Request Description Check
+
+Warn if the PR body is empty.
+
+---
+
+## Output
+
+
+<img width="1679" height="832" alt="image" src="https://github.com/user-attachments/assets/035baa0e-c3f2-41b4-bc2f-81731f9eca3b" />
+
+
+---
+
+# Task 3 – Scheduled Workflows (Cron)
+
+## 🎯 Goal
+
+Run workflows automatically without manual intervention.
+
+### Workflow File - .github/workflows/scheduled-tasks.yml
+
+```yaml
+
 name: Scheduled Tasks
 
 on:
@@ -140,23 +238,54 @@ jobs:
             echo "Health check failed with status: $RESPONSE"
             exit 1
           fi
-Cron Expressions
-Description	Cron Expression
-Every weekday at 9 AM IST	30 3 * * 1-5
-First day of every month at midnight	0 0 1 * *
-Why scheduled workflows may be delayed or skipped:
+```
 
-Repository inactivity (no commits for 60+ days)
+### Cron Jobs Used
 
-GitHub resource optimization for inactive repositories
+| Schedule | Cron |
+|-----------|------|
+| Every Monday 2:30 UTC | `30 2 * * 1` |
+| Every 6 Hours | `0 */6 * * *` |
 
-Workload balancing across GitHub's runner infrastructure
+Also enabled:
 
-Archived repositories do not run scheduled workflows
+```yaml
+workflow_dispatch
+```
 
-Task 4: Path & Branch Filters
-Workflow: smart-triggers.yml
-yaml
+for manual testing.
+
+---
+
+### Health Check
+
+The workflow performs a simple health check using:
+
+```bash
+curl
+```
+
+to verify GitHub is reachable.
+
+---
+
+## Output
+
+<img width="3360" height="1690" alt="image" src="https://github.com/user-attachments/assets/5824d041-01b9-46bd-9678-2a8b2814baca" />
+
+
+---
+
+# Task 4 – Path & Branch Filters
+
+## 🎯 Goal
+
+Run workflows only when relevant files change.
+
+### Workflow Files - .github/workflows/smart-triggers.yml & .github/workflows/smart-triggers-ignore.yml
+
+```yaml
+
 name: Smart Triggers
 
 on:
@@ -175,8 +304,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
-        with:
-          fetch-depth: 0
       
       - name: Show trigger information
         run: |
@@ -190,14 +317,12 @@ jobs:
       - name: Show changed files
         run: |
           echo "Files changed in this push:"
-          if [ "${{ github.event.before }}" != "0000000000000000000000000000000000000000" ]; then
-            git diff --name-only ${{ github.event.before }} ${{ github.sha }}
-          else
-            git ls-files
-          fi
+          echo "${{ github.event.head_commit.modified }}"
           echo "========================================"
-Workflow: smart-triggers-ignore.yml
-yaml
+```
+
+```yaml
+
 name: Smart Triggers - Ignore
 
 on:
@@ -216,39 +341,68 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
-        with:
-          fetch-depth: 0
       
       - name: Show trigger information
         run: |
           echo "========================================"
-          echo "Workflow triggered (paths-ignore filter)"
+          echo "Workflow triggered by paths-ignore filter"
           echo "Branch: ${{ github.ref_name }}"
-          echo "Commit: ${{ github.sha }}"
           echo "Commit message: ${{ github.event.head_commit.message }}"
           echo "========================================"
       
       - name: Show changed files
         run: |
           echo "Files changed in this push:"
-          if [ "${{ github.event.before }}" != "0000000000000000000000000000000000000000" ]; then
-            git diff --name-only ${{ github.event.before }} ${{ github.sha }}
-          else
-            git ls-files
-          fi
+          git diff --name-only HEAD~1
           echo "========================================"
-When to Use paths vs paths-ignore
-Use Case	Use	Why
-Only run tests when code changes	paths: ['src/**', 'app/**']	Don't waste time on documentation
-Skip deployment when docs change	paths-ignore: ['*.md', 'docs/**']	Documentation doesn't need deployment
-Run security scan on code files	paths: ['*.js', '*.py', '*.go']	Only scan relevant file types
-Skip CI when only config changes	paths-ignore: ['*.yml', '*.yaml']	Configuration changes don't need tests
-Run on specific folder changes	paths: ['backend/**']	Microservice-specific triggers
-Note: You cannot use both paths and paths-ignore together in the same workflow. They must be in separate workflows.
+```
 
-Task 5: workflow_run - Chain Workflows Together
-Workflow: tests.yml
-yaml
+### Learned
+
+### paths
+
+Run workflow only when selected files change.
+
+Example:
+
+```yaml
+paths:
+  - "*.py"
+  - app.py
+```
+
+### paths-ignore
+
+Skip workflow for documentation changes.
+
+Example:
+
+```yaml
+paths-ignore:
+  - "*.md"
+  - docs/**
+```
+
+---
+
+## Output
+
+<img width="3360" height="1656" alt="image" src="https://github.com/user-attachments/assets/9bebd1da-9086-41fc-81a4-20c00c3c368a" />
+
+
+---
+
+# Task 5 – Workflow Chaining
+
+## 🎯 Goal
+
+Run deployment only after tests complete successfully.
+
+### Workflow Files - .github/workflows/tests.yml & .github/workflows/deploy-after-tests.yml
+
+
+```yaml
+
 name: Run Tests
 
 on:
@@ -288,8 +442,11 @@ jobs:
           
           echo "Test 3: All tests passed!"
           echo "========================================"
-Workflow: deploy-after-tests.yml
-yaml
+
+```
+
+```yaml
+
 name: Deploy After Tests
 
 on:
@@ -335,34 +492,45 @@ jobs:
           
           echo "Deployment complete!"
           echo "========================================"
-Explanation: workflow_run vs workflow_call
-workflow_run:
+```
 
-Triggers automatically when another workflow completes
+### Learned
 
-Runs on the default branch (main)
+`workflow_run`
 
-Can access the triggering workflow's conclusion (success/failure)
+- waits for another workflow
+- checks its conclusion
+- deploys only if tests pass
 
-Use when you want to chain workflows based on completion status
+Unlike:
 
-Example: Deploy after tests pass, or notify on failure
+`workflow_call`
 
-workflow_call:
+which is used for reusable workflows.
 
-Triggers manually when called from another workflow
+---
 
-Allows passing inputs between workflows
+## Output
 
-Must be explicitly called using the uses keyword
+<img width="3354" height="1606" alt="image" src="https://github.com/user-attachments/assets/d07e0c81-aed1-4a97-b27a-ad09850a8c8e" />
 
-Use when you want to reuse workflows and pass parameters
+<img width="831" height="55" alt="image" src="https://github.com/user-attachments/assets/acede89e-3f0a-439d-8667-70f1ce54b0e9" />
 
-Example: Reusable deployment workflow called with different environments
 
-Task 6: repository_dispatch - External Event Triggers
-Workflow: external-trigger.yml
-yaml
+
+---
+
+# Task 6 – External Event Trigger
+
+## 🎯 Goal
+
+Trigger GitHub Actions from an external system.
+
+### Workflow File - .github/workflows/external-trigger.yml
+
+
+```yaml
+
 name: External Trigger
 
 on:
@@ -422,56 +590,101 @@ jobs:
           echo "Step 4: Post-deployment verification"
           echo "Deployment completed successfully"
           echo "========================================"
-Triggering repository_dispatch
-Using GitHub CLI (gh):
+```
 
-bash
-gh api repos/sopatel14/github-actions-practice/dispatches \
-  -f event_type=deploy-request \
-  --raw-field client_payload='{"environment":"production"}'
-Using curl with PAT:
+### Trigger
 
-bash
-curl -X POST \
-  -H "Accept: application/vnd.github+json" \
-  -H "Authorization: token ghp_YOUR_TOKEN" \
-  https://api.github.com/repos/sopatel14/github-actions-practice/dispatches \
-  -d '{"event_type":"deploy-request","client_payload":{"environment":"production"}}'
-When to Use repository_dispatch
-Use Case	Example
-Slack bot triggers deployment	User types "/deploy production" in Slack
-Monitoring tool triggers rollback	System detects error and triggers rollback
-CI/CD pipeline from another system	Jenkins triggers GitHub Action after build
-Scheduled external jobs	External cron triggers deployment
-Webhook from another service	Third-party service triggers workflow
-Summary Table of All Triggers
-Trigger Type	File	Purpose
-pull_request	pr-lifecycle.yml	PR lifecycle events
-pull_request	pr-checks.yml	PR validation and gates
-schedule	scheduled-tasks.yml	Cron-based automation
-push with paths	smart-triggers.yml	Path-based triggers
-push with paths-ignore	smart-triggers-ignore.yml	Path exclusion triggers
-workflow_run	deploy-after-tests.yml	Workflow chaining
-repository_dispatch	external-trigger.yml	External event triggers
+```yaml
+repository_dispatch
+```
 
-Key Learnings
-PR Events - Different lifecycle events allow granular control over when workflows run
+### Payload Example
 
-Scheduled Workflows - Cron schedules enable automation without manual triggers
+```json
+{
+  "environment": "production"
+}
+```
 
-Path Filters - Optimize workflow execution by limiting triggers to relevant files
+### Learned
 
-Workflow Chaining - workflow_run creates dependency between workflows
+This trigger is useful for:
 
-External Triggers - repository_dispatch enables integration with external systems
+- Slack deployment commands
+- Jenkins pipelines
+- External schedulers
+- Monitoring systems
+- Third-party integrations
 
-Notes
-Scheduled workflows only run on the default branch (main)
+---
 
-paths-ignore takes precedence over paths when both are present
+## Output
 
-workflow_run gives access to the triggering workflow's conclusion and artifacts
+<img width="831" height="55" alt="image" src="https://github.com/user-attachments/assets/ad5b3c56-8c9a-4930-9259-9284f7957209" />
 
-repository_dispatch requires a personal access token with repo scope
+<img width="3360" height="1670" alt="image" src="https://github.com/user-attachments/assets/af3b05ee-5b80-4b76-a4ed-9fbecad7bf00" />
 
-Path filters use glob patterns - ** matches nested directories
+
+---
+
+# Trigger Summary
+
+| Trigger | Purpose |
+|----------|---------|
+| pull_request | React to PR lifecycle |
+| schedule | Run automatically on cron |
+| workflow_dispatch | Manual execution |
+| paths | Trigger only for selected files |
+| paths-ignore | Ignore documentation/config changes |
+| workflow_run | Chain workflows |
+| repository_dispatch | Trigger from external systems |
+
+---
+
+# Key Learnings
+
+- Understood the complete Pull Request lifecycle.
+- Built validation workflows for PR quality checks.
+- Automated recurring tasks using cron schedules.
+- Optimized workflow execution with path filters.
+- Learned how to chain workflows using `workflow_run`.
+- Explored external event triggering with `repository_dispatch`.
+- Gained deeper understanding of event-driven CI/CD pipelines in GitHub Actions.
+
+---
+
+# Repository
+
+**GitHub Repository**
+
+```
+https://github.com/sopatel14/github-actions-practice
+```
+
+---
+
+# Workflow Files
+
+```
+.github/workflows/pr-lifecycle.yml
+
+.github/workflows/pr-checks.yml
+
+.github/workflows/scheduled-tasks.yml
+
+.github/workflows/smart-triggers.yml
+
+.github/workflows/smart-triggers-ignore.yml
+
+.github/workflows/tests.yml
+
+.github/workflows/deploy-after-tests.yml
+
+.github/workflows/external-trigger.yml
+```
+
+---
+
+# Conclusion
+
+Day 47 introduced advanced GitHub Actions triggers that make CI/CD pipelines more intelligent and event-driven. Instead of running workflows on every push, pipelines can now react to pull request activities, scheduled jobs, specific file changes, completion of other workflows, and even external applications. These capabilities are widely used in production environments to create scalable, automated, and efficient DevOps workflows.
