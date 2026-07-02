@@ -345,7 +345,88 @@ These additions make the deployment pipeline significantly more secure and align
 
 ---
 
-Dockerfile
+## 📝 Notes from All Tasks (As Required)
 
-day-49-devsecops.md
-```
+### Task 1 Notes
+
+**Q: What CVEs (if any) were found? What base image are you using?**
+
+**A:** The scan found 12 vulnerabilities (2 CRITICAL, 10 HIGH) in the `python:3.14-slim` base image:
+
+**CRITICAL Vulnerabilities (2):**
+- **CVE-2026-42496** - perl-archive-tar: Path traversal via crafted symlinks allowing arbitrary file access
+- **CVE-2026-8376** - Perl: Heap buffer overflow when compiling regular expressions on 32-bit builds
+
+**HIGH Vulnerabilities (10):**
+- **CVE-2026-41992** - GNU gzip buffer overflow vulnerability in LZH decompression
+- **CVE-2026-54369** - acl: Symlink traversal privilege escalation via libacl functions
+- **CVE-2026-54371** - attr: Symlink traversal privilege escalation via getfattr and setfattr
+- **CVE-2025-69720** - ncurses: Buffer overflow vulnerability leading to arbitrary code execution
+- **CVE-2026-42497** - perl-Archive-Tar: Arbitrary file modification via crafted hardlinks
+- **CVE-2026-48962** - perl-IO-Compress: Arbitrary code execution via attacker-controlled output glob
+- **CVE-2026-9538** - Archive::Tar: Memory exhaustion vulnerability
+
+The base image was `python:3.14-slim` (Debian-based). After switching to Alpine Linux (`python:3.14-alpine`), all vulnerabilities were resolved (Total: 0).
+
+---
+
+### Task 2 Notes
+
+**Q: What is the difference between secret scanning and push protection?**
+
+**A:** 
+- **Secret Scanning**: Detects secrets that are already in your repository and alerts you. It's a reactive measure - it finds secrets after they've been committed and notifies administrators.
+- **Push Protection**: Blocks the commit/push if a secret is detected. It's a proactive measure - it prevents secrets from ever being committed in the first place.
+
+**Q: What happens if GitHub detects a leaked AWS key in your repo?**
+
+**A:** 
+1. GitHub secret scanning immediately alerts repository administrators
+2. Push protection blocks the commit from being pushed (if enabled)
+3. AWS automatically invalidates the exposed credentials
+4. A security advisory is created in the repository
+5. The commit is flagged and must be fixed before merging
+
+---
+
+### Task 3 Notes
+
+**Q: Does the dependency review show up as a check on your PR?**
+
+**A:** Yes, the dependency review appears as a separate check on the PR page alongside build-test and pr-comment checks. It runs automatically when a PR is opened or updated.
+
+**Q: What happens if a dependency has a critical CVE?**
+
+**A:** The dependency-review job fails and the PR cannot be merged. The pipeline blocks the PR until the vulnerable dependency is removed or updated to a secure version.
+
+---
+
+### Task 4 Notes
+
+**Q: Why is it a good practice to limit workflow permissions? What could go wrong if a compromised action has write access to your repo?**
+
+**A:** Limiting workflow permissions follows the **principle of least privilege**. If a compromised action has write access, the following could happen:
+
+| Threat | Impact |
+|--------|--------|
+| Source code modification | Attackers could inject malicious code |
+| Production deployment | Malicious code could be pushed to production |
+| Secret theft | Other secrets and credentials could be stolen |
+| Infrastructure abuse | GitHub's infrastructure could be used for attacks |
+| Supply chain attack | The compromised action could affect other repos or users |
+| Data exfiltration | Sensitive data could be stolen |
+| Backdoor injection | Permanent access could be established |
+
+---
+
+### Summary of All Notes
+
+| Task | Required Notes | Answer |
+|------|----------------|--------|
+| Task 1 | CVEs found, base image used | 12 vulnerabilities (2 CRITICAL, 10 HIGH) in python:3.14-slim; fixed by switching to Alpine |
+| Task 2 | Difference between secret scanning and push protection | Secret scanning finds committed secrets; push protection blocks them from being committed |
+| Task 2 | What happens if AWS key leaked | GitHub alerts, AWS revokes credentials, security advisory created |
+| Task 3 | Does dependency review show on PR | Yes, appears as a check on the PR page |
+| Task 4 | Why limit permissions + what could go wrong | Prevents compromised actions from modifying code, stealing secrets, or causing supply chain attacks |
+
+---
