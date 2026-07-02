@@ -1,5 +1,7 @@
 # Day 49 – DevSecOps Implementation
 
+https://github.com/sopatel14/flask-app-ecs
+
 ## 📌 What is DevSecOps?
 
 DevSecOps is the practice of integrating security into every stage of the CI/CD pipeline instead of treating it as a separate phase. By automating security checks during development, testing, and deployment, vulnerabilities can be identified and fixed much earlier, reducing security risks and improving software quality.
@@ -342,15 +344,6 @@ These additions make the deployment pipeline significantly more secure and align
 
 
 ---
-
-# Repository Files
-
-```
-.github/
-└── workflows/
-    ├── main-pipeline.yml
-    ├── pr-pipeline.yml
-    └── reusable-build-test.yml
 
 Dockerfile
 
