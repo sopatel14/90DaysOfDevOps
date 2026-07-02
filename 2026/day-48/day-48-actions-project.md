@@ -377,7 +377,7 @@ Show:
 
 ## Health Check Summary
 
-<img width="1680" height="826" alt="image" src="https://github.com/user-attachments/assets/d8d7d82a-9ab7-4822-abbc-dd4f3dbe7c71" />
+<img width="1680" height="833" alt="image" src="https://github.com/user-attachments/assets/373c60fa-a33a-454e-a463-4ec64f3e40bc" />
 
 
 ---
