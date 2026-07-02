@@ -340,14 +340,6 @@ The project now automatically:
 
 These additions make the deployment pipeline significantly more secure and align it with modern DevSecOps best practices.
 
----
-
-# Screenshots Checklist
-
-- [ ] Trivy Scan Output
-- [ ] Secret Scanning Enabled
-- [ ] Dependency Review Workflow
-- [ ] Updated Workflow Permissions (optional)
 
 ---
 
