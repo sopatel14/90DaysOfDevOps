@@ -559,43 +559,6 @@ kubectl logs -f live-config-pod
 
 ---
 
-# Cleanup
-
-Delete Pods
-
-```bash
-kubectl delete pod busybox-env-pod
-kubectl delete pod nginx-volume-pod
-kubectl delete pod secret-pod
-kubectl delete pod live-config-pod
-```
-
-Delete ConfigMaps
-
-```bash
-kubectl delete configmap app-config
-kubectl delete configmap nginx-config
-kubectl delete configmap live-config
-```
-
-Delete Secret
-
-```bash
-kubectl delete secret db-credentials
-```
-
-Verify
-
-```bash
-kubectl get pods
-
-kubectl get configmaps
-
-kubectl get secrets
-```
-
----
-
 # Files Created
 
 ```
