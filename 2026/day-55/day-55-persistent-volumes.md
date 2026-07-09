@@ -544,24 +544,3 @@ dynamic-pod.yaml
 ✔ Learned reclaim policies and access modes.
 
 ---
-
-## 📸 Final GitHub README Screenshot Checklist
-
-- ✅ Project folder structure
-- ✅ `ephemeral-pod.yaml`
-- ✅ Pod with `emptyDir`
-- ✅ Data before deletion
-- ✅ Data after recreation
-- ✅ `persistent-volume.yaml`
-- ✅ `kubectl get pv`
-- ✅ `persistent-volume-claim.yaml`
-- ✅ `kubectl get pvc`
-- ✅ `pod-with-pvc.yaml`
-- ✅ Data persistence proof
-- ✅ `kubectl get storageclass`
-- ✅ `dynamic-pvc.yaml`
-- ✅ `dynamic-pod.yaml`
-- ✅ Dynamic PVC Bound
-- ✅ `kubectl get pv`
-- ✅ Cleanup (`Released` / deleted PV)
-- ✅ Final successful terminal output
