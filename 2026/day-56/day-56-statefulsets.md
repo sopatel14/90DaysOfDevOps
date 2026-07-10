@@ -149,15 +149,6 @@ Example
 ```
 nginx-stateful-0.nginx-headless.default.svc.cluster.local
 ```
-
----
-
-## Screenshot
-
-📸 **Insert Screenshot**
-
-- `kubectl get svc`
-
 ---
 
 # Task 3 – Create a StatefulSet
