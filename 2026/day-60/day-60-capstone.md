@@ -929,7 +929,8 @@ spec:
 
 ### Screenshot 7: Helm Comparison
 
-<img width="1640" height="646" alt="image" src="https://github.com/user-attachments/assets/8c38e513-8864-4121-b823-36073dae93f8" />
+<img width="840" height="308" alt="image" src="https://github.com/user-attachments/assets/bfa86f71-2731-47d7-95df-8dec0a686515" />
+
 
 <img width="1808" height="834" alt="image" src="https://github.com/user-attachments/assets/bae903d0-675c-4897-9441-d0753f0c7a8a" />
 
