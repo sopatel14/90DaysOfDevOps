@@ -894,7 +894,7 @@ spec:
 ## Screenshots
 
 
-### Screenshot 1: WordPress Blog Post
+### Screenshot 1: WordPress Dashboard
 
 <img width="3324" height="1730" alt="image" src="https://github.com/user-attachments/assets/4375cf7c-83f2-4606-b65e-67d43000efbb" />
 
