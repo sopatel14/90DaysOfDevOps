@@ -893,11 +893,10 @@ spec:
 
 ## Screenshots
 
-> **Where to attach:** Put this whole section right here — directly under the "Complete Working YAML Files" block and before you wrap up the document. Save each screenshot into a `screenshots/` folder next to this `.md` file, named exactly as below, and the image links will render automatically. If you'd rather store them elsewhere, just update the relative path in each `![...](path)` line.
 
 ### Screenshot 1: WordPress Blog Post
-- **File:** `screenshots/screenshot-1-wordpress-blog.png`
-- Show the published blog post in browser, URL showing `http://localhost:8080`, title "Kubernetes Capstone Day 60", and the post content.
+
+<img width="3324" height="1730" alt="image" src="https://github.com/user-attachments/assets/4375cf7c-83f2-4606-b65e-67d43000efbb" />
 
 
 
