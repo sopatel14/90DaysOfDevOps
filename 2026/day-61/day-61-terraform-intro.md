@@ -309,7 +309,7 @@ Terraform uses these files internally.
 
 **terraform apply**
 
-<img width="1186" height="1414" alt="image" src="https://github.com/user-attachments/assets/c7146a48-dfd1-4d11-b035-c9df74222b49" />
+<img width="1168" height="1364" alt="image" src="https://github.com/user-attachments/assets/7625d47c-ed2d-4d71-a18c-a6697c14a0be" />
 
 
 ---
