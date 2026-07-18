@@ -383,7 +383,16 @@ When conflicting values are passed to the same input variable, Terraform resolve
 
 <img width="1138" height="296" alt="image" src="https://github.com/user-attachments/assets/d9043dcd-a403-4a06-8d4a-a6d3afac18f1" />
 
+### 📷 Screenshot 4: Precedence Execution Testing
 
-### 📷 Screenshot 4: Final Infrastructure Outputs Display
+<img width="1488" height="1648" alt="image" src="https://github.com/user-attachments/assets/01f141dd-add1-4c98-bbe8-3280b7cab32d" />
+
+
+### 📷 Screenshot 5: Infrastructure Verification!
+
+<img width="3350" height="520" alt="image" src="https://github.com/user-attachments/assets/af6c8324-f8c9-4fe1-9078-1adf8d27acba" />
+
+
+### 📷 Screenshot 6: Final Infrastructure Outputs Display
 
 <img width="574" height="120" alt="image" src="https://github.com/user-attachments/assets/f4cb440c-d2d2-46b4-84c1-f78808212868" />
