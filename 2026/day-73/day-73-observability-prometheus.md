@@ -333,7 +333,7 @@ curl http://localhost:8000/api/notes
 - **Data management** — retention limits, TSDB behavior, and why the volume mount matters.
 
 ## Architecture diagram of what will be build over days 73-77
-
+```
 ┌─────────────────────────────────────────────────────────────────┐
 │                     Observability Stack                        │
 │                                                               │
@@ -364,7 +364,7 @@ curl http://localhost:8000/api/notes
 │  │        All data visualized in Grafana                  │ │
 │  └──────────────────────────────────────────────────────────┘ │
 └─────────────────────────────────────────────────────────────────┘
-
+```
 ### Next Steps (Days 74–77)
 
 - **Day 74:** Node Exporter and cAdvisor
