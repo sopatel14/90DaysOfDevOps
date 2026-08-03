@@ -259,9 +259,10 @@ curl http://localhost:8000/api/notes
 
 **Verify:** **Status → Targets** now shows two healthy targets — `prometheus` and `notes-app`.
 
-📸 **Verification Screenshot:** *Capture the Targets page showing both `prometheus` and `notes-app` as UP.*
+📸 **Verification Screenshot:** 
 
-![Prometheus Targets — With Notes App](path/to/your/screenshot.png)
+<img width="3360" height="974" alt="image" src="https://github.com/user-attachments/assets/7f27a77c-24ee-4d54-9720-9631eac5aac0" />
+
 
 > Not every application exposes Prometheus metrics natively. Node Exporter, cAdvisor, and the OTEL Collector (covered on Days 74–76) act as exporters for systems that don't have built-in Prometheus support.
 
