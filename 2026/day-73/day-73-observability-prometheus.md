@@ -332,6 +332,11 @@ curl http://localhost:8000/api/notes
 - **Sample application** — added `notes-app` as a second scrape target and generated real traffic.
 - **Data management** — retention limits, TSDB behavior, and why the volume mount matters.
 
+## Architecture diagram of what will be build over days 73-77
+
+<img width="1440" height="1180" alt="image" src="https://github.com/user-attachments/assets/d4337370-c583-4ab7-b31a-6644ec988b3a" />
+
+
 ### Next Steps (Days 74–77)
 
 - **Day 74:** Node Exporter and cAdvisor
