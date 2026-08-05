@@ -275,6 +275,7 @@ curl http://localhost:9080/targets
 Expected: `docker (1/1 ready)`
 
 📸 **Verification Screenshot:** 
+
 <img width="3360" height="1750" alt="image" src="https://github.com/user-attachments/assets/97178669-9bc6-4e2d-98df-cb05454961d8" />
 
 ---
@@ -309,9 +310,9 @@ docker compose restart grafana
 
 Grafana now has two datasources side by side: **Prometheus** and **Loki**.
 
-📸 **Verification Screenshot:** *Capture the Grafana Data Sources page showing both Prometheus and Loki.*
+📸 **Verification Screenshot:** 
 
-![Grafana Datasources](path/to/your/screenshot.png)
+<img width="1672" height="713" alt="loki datasource running" src="https://github.com/user-attachments/assets/32da4ca7-6f8c-423a-a0cf-64104d3e3de0" />
 
 ---
 
@@ -423,7 +424,7 @@ This is the real payoff of Day 75: investigating an incident from **one interfac
 
 📸 **Verification Screenshot:** 
 
-<img width="3344" height="1426" alt="image" src="https://github.com/user-attachments/assets/baf01db7-6067-4fb1-9240-504632b3d123" />
+<img width="1556" height="903" alt="docker job" src="https://github.com/user-attachments/assets/416af08f-9241-4edb-9bad-6ad0415f5e2d" />
 
 
 ### Explore split view — metrics and logs side by side
