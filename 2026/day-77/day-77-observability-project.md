@@ -83,12 +83,10 @@ docker compose up -d
 docker compose ps
 ```
 
-### 📸 Screenshot 1: All 8 Services UP
+### 📸 Screenshot 1: All Targets UP
 
 <img width="1667" height="888" alt="all 8 services UP" src="https://github.com/user-attachments/assets/805d73c8-4828-4c91-bc62-3d91c57230a5" />
 
-
-*All services healthy and running: Prometheus, Node Exporter, cAdvisor, Grafana, Loki, Promtail, OTEL Collector, and Notes App.*
 
 ### Service Endpoints
 
