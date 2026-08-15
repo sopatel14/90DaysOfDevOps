@@ -83,10 +83,11 @@ docker compose up -d
 docker compose ps
 ```
 
-### 📸 Screenshot 1: All Targets UP
+### 📸 Screenshot 1: All Services UP
 
-<img width="1667" height="888" alt="all 8 services UP" src="https://github.com/user-attachments/assets/805d73c8-4828-4c91-bc62-3d91c57230a5" />
+<img width="1680" height="384" alt="image" src="https://github.com/user-attachments/assets/ca44d086-8d94-44ba-8b3b-25b847681a20" />
 
+All services healthy and running: Prometheus, Node Exporter, cAdvisor, Grafana, Loki, Promtail, OTEL Collector, and Notes App.
 
 ### Service Endpoints
 
@@ -111,6 +112,11 @@ All 4 Prometheus scrape jobs report **UP** at `http://localhost:9090/targets`:
 - `node-exporter` — host metrics
 - `docker` / `cadvisor` — container metrics
 - `otel-collector` — OTLP metrics
+
+### 📸 Screenshot 2: All Targets Up
+
+<img width="1667" height="888" alt="all 8 services UP" src="https://github.com/user-attachments/assets/4c78f432-8721-4126-96af-ca47473165c1" />
+
 
 ### Key PromQL Queries
 
@@ -240,7 +246,7 @@ This simulates a two-span trace: an HTTP request (`GET /api/notes`) that trigger
 docker logs otel-collector 2>&1 | grep -A 20 "GET /api/notes"
 ```
 
-### 📸 Screenshot 2: OTEL Collector Debug Output
+### 📸 Screenshot 3: OTEL Collector Debug Output
 
 
 <img width="1818" height="792" alt="image" src="https://github.com/user-attachments/assets/adbe5892-f51e-466a-b108-bdf793ddaf82" />
@@ -295,7 +301,7 @@ docker logs otel-collector 2>&1 | grep -A 20 "GET /api/notes"
 | Prometheus Scrape Duration | Time series | `prometheus_target_interval_length_seconds{quantile="0.99"}` |
 | OTEL Metrics Received | Stat | `otelcol_receiver_accepted_metric_points` |
 
-### 📸 Screenshot 3: Production Overview Dashboard
+### 📸 Screenshot 4: Production Overview Dashboard
 
 <img width="1648" height="895" alt="dashboard" src="https://github.com/user-attachments/assets/2bb7df3e-5a39-4abd-a83b-baef16a8735f" />
 
