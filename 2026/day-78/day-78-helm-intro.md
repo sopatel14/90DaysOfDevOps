@@ -29,7 +29,8 @@ kubectl cluster-info
 kubectl get nodes -o wide
 ```
 
-`> [INSERT SCREENSHOT: kubectl cluster-info and kubectl get nodes -o wide]`
+<img width="565" height="254" alt="cluster info and get nodes" src="https://github.com/user-attachments/assets/d4739d1a-24a6-4b1f-96c6-03fee0c9b4ff" />
+
 
 ```bash
 helm version
